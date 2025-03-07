@@ -29,7 +29,8 @@ Special Offer        </h1>
               </button>
              <button>
                 <Link
-              to="/discount_info"
+                target='_blank'
+              to="https://www.amazon.com/stores/Andrew-Boyd/author/B001IXSAD2?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true"
               className="mt-6 bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-md transition duration-300">
          Book Now
           </Link>

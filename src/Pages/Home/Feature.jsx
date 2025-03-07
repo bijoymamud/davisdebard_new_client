@@ -1,5 +1,6 @@
 import React from 'react';
 import bookImg from "../../assets/bookImg.png";
+import { Link } from 'react-router-dom';
 
 const Feature = () => {
   return (
@@ -24,7 +25,12 @@ const Feature = () => {
             helping you find the best AI tools across industries like finance and education.
           </p>
           <button className="mt-6 bg-[#E7B008] hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300">
+          <Link
+          target='_blank'
+          to="https://www.amazon.com/stores/Andrew-Boyd/author/B001IXSAD2?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true"
+          >
             Buy on Amazon
+          </Link>
           </button>
         </div>
 

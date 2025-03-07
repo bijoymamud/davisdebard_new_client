@@ -84,8 +84,9 @@
 // export default Navbar;
 
 
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom"; // ✅ Corrected import
+import { Menu, X } from "lucide-react"; // ✅ Corrected import
 import bannerBg from "../../assets/banner_bg.png";
 import logo from "../../assets/Logo.png";
 
@@ -113,12 +114,12 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8 md:text-lg">
-            <a href="#" className="text-yellow-500 hover:text-yellow-400 px-3 py-2 text-sm font-medium">Home</a>
-            <a href="#" className="text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Book</a>
-            <a href="#" className="text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Newsletter</a>
-            <a href="#" className="text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Software</a>
-            <a href="#" className="text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Contact</a>
+          <div className="hidden md:flex space-x-8 ">
+            <Link to="/" className="text-yellow-500 hover:text-yellow-400 px-3 py-2 text-base font-medium">Home</Link>
+            <Link to="/book" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Book</Link>
+            <Link to="/newsletter" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Newsletter</Link>
+            <Link to="/software" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Software</Link>
+            <Link to="/contact" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Contact</Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -141,11 +142,11 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black bg-opacity-80 rounded-md">
-              <a href="#" className="text-yellow-500 hover:text-yellow-400 block px-3 py-2 text-base font-medium">Home</a>
-              <a href="#" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Book</a>
-              <a href="#" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Newsletter</a>
-              <a href="#" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Software</a>
-              <a href="#" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Contact</a>
+              <Link to="/" className="text-yellow-500 hover:text-yellow-400 block px-3 py-2 text-base font-medium">Home</Link>
+              <Link to="/book" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Book</Link>
+              <Link to="/newsletter" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Newsletter</Link>
+              <Link to="/software" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Software</Link>
+              <Link to="/contact" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Contact</Link>
             </div>
           </div>
         )}

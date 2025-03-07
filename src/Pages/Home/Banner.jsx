@@ -1,5 +1,6 @@
 import React from "react";
 import backgroundGif from "../../assets/bannerVideo.gif";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -20,7 +21,12 @@ const Banner = () => {
         </p>
         <div className="mt-6 flex flex-col md:flex-row gap-4 justify-center">
           <button className="bg-[#CE9500] hover:bg-yellow-600 font-semibold py-3 px-6 rounded-md text-white">
+         <Link 
+         target='_blank'
+         to="https://www.amazon.com/stores/Andrew-Boyd/author/B001IXSAD2?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true"
+         >
             Get The Book
+         </Link>
           </button>
           <button className=" font-semibold py-3 px-6 rounded-lg border border-[#CE9500] text-[#E7B008]">
             Subscribe Now

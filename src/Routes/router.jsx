@@ -2,6 +2,7 @@ import {createBrowserRouter} from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import DiscountForm from "../Pages/DiscountPage/DiscountForm";
+import Position from "../Pages/Position/Position";
   
 export const router = createBrowserRouter([
     {
@@ -15,6 +16,11 @@ export const router = createBrowserRouter([
           {
           path: '/discount_info',
           element: <DiscountForm/>  
+          },
+          
+          {
+          path: '/ranking',
+          element: <Position/>  
           }
       ]
     },
