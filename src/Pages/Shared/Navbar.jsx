@@ -1,7 +1,8 @@
-// import React, { useState } from 'react';
-// import { Menu, X, BookOpen } from 'lucide-react';
-// import bannerBg from "../../assets/banner_bg.png"
-// import logo from "../../assets/Logo.png"
+// import React, { useState } from "react";
+// import { Link } from "react-router-dom"; 
+// import { Menu, X } from "lucide-react"; 
+// import bannerBg from "../../assets/banner_bg.png";
+// import logo from "../../assets/AiTitanLogoMain.png";
 
 // const Navbar = () => {
 //   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,43 +12,30 @@
 //   };
 
 //   return (
-//     <nav className="relative">
-//       {/* Background Image */}
-//       <div 
-//         className="absolute inset-0 w-full h-full bg-black z-0" 
-//         style={{
-//           backgroundImage: `url(${bannerBg})`,
-//           backgroundSize: 'cover',
-//           backgroundPosition: 'center',
-//           opacity: 1
-//         }}
-//       ></div>
-      
-//       {/* Navbar Content */}
-//       <div className="relative z-10 mx-auto container">
-//         <div className="flex justify-between items-center py-2">
+//     <nav
+//       className="sticky top-0 z-50 backdrop-blur-md bg-black/60 bg-cover bg-center"
+//       style={{ backgroundImage: `url(${bannerBg})` }}
+//     >
+//       <div className="relative mx-auto container">
+//         <div className="flex justify-between items-center py-2 px-4">
 //           {/* Logo and Brand */}
 //           <div className="flex items-center">
-//             <img src={logo} alt="" className='w-[80px]'/>
-//             <div className="ml-2">
-//               <div className="text-xl font-bold text-white">AI</div>
-//               <div className="text-xl font-bold text-yellow-500">BOOKPOINT</div>
-//             </div>
+//             <img src={logo} alt="Logo" className="w-[150px] h-[80px]" />
+         
 //           </div>
-          
+
 //           {/* Desktop Navigation */}
-//           <div className="hidden md:flex space-x-8 md:text-lg">
-//             <a href="#" className="text-yellow-500 hover:text-yellow-400 px-3 py-2 text-sm font-medium">Home</a>
-//             <a href="#" className="text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Book</a>
-//             <a href="#" className="text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Newsletter</a>
-//             <a href="#" className="text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Software</a>
-//             <a href="#" className="text-white hover:text-yellow-400 px-3 py-2 text-sm font-medium">Contact</a>
+//           <div className="hidden md:flex space-x-8 ">
+//             <Link to="/" className="text-yellow-500 hover:text-yellow-400 px-3 py-2 text-base font-medium">Home</Link>
+//             <Link to="/news_latter" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Newsletter</Link>
+//             <Link to="/software" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Software</Link>
+//             <Link to="/contact" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Contact</Link>
 //           </div>
 
 //           <div>
 
 //           </div>
-          
+
 //           {/* Mobile Menu Button */}
 //           <div className="md:hidden">
 //             <button 
@@ -63,16 +51,15 @@
 //             </button>
 //           </div>
 //         </div>
-        
+
 //         {/* Mobile Navigation */}
 //         {isMenuOpen && (
 //           <div className="md:hidden">
 //             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black bg-opacity-80 rounded-md">
-//               <a href="#" className="text-yellow-500 hover:text-yellow-400 block px-3 py-2 text-base font-medium">Home</a>
-//               <a href="#" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Book</a>
-//               <a href="#" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Newsletter</a>
-//               <a href="#" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Software</a>
-//               <a href="#" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Contact</a>
+//               <Link to="/" className="text-yellow-500 hover:text-yellow-400 block px-3 py-2 text-base font-medium">Home</Link>
+//               <Link to="/news_latter" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Newsletter</Link>
+//               <Link to="/software" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Software</Link>
+//               <Link to="/contact" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Contact</Link>
 //             </div>
 //           </div>
 //         )}
@@ -85,10 +72,10 @@
 
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // ✅ Corrected import
-import { Menu, X } from "lucide-react"; // ✅ Corrected import
+import { NavLink } from "react-router-dom"; // Changed from Link to NavLink
+import { Menu, X } from "lucide-react"; 
 import bannerBg from "../../assets/banner_bg.png";
-import logo from "../../assets/Logo.png";
+import logo from "../../assets/AiTitanLogoMain.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -96,6 +83,21 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Common styles for nav links
+  const navLinkStyles = ({ isActive }) => 
+    `px-3 py-2 text-base font-medium transition-colors duration-200 ${
+      isActive 
+        ? 'text-yellow-400 border-b-2 border-yellow-400' 
+        : 'text-white hover:text-yellow-400'
+    }`;
+
+  const mobileNavLinkStyles = ({ isActive }) => 
+    `block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+      isActive 
+        ? 'text-yellow-400 bg-gray-900' 
+        : 'text-white hover:text-yellow-400'
+    }`;
 
   return (
     <nav
@@ -106,21 +108,18 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-2 px-4">
           {/* Logo and Brand */}
           <div className="flex items-center">
-            <img src={logo} alt="Logo" className="w-[80px]" />
-            <div className="ml-2">
-              <div className="text-xl font-bold text-white">AI</div>
-              <div className="text-xl font-bold text-yellow-500">BOOKPOINT</div>
-            </div>
+            <img src={logo} alt="Logo" className="w-[150px] h-[80px]" />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8 ">
-            <Link to="/" className="text-yellow-500 hover:text-yellow-400 px-3 py-2 text-base font-medium">Home</Link>
-            <Link to="/book" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Book</Link>
-            <Link to="/newsletter" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Newsletter</Link>
-            <Link to="/software" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Software</Link>
-            <Link to="/contact" className="text-white hover:text-yellow-400 px-3 py-2 text-base font-medium">Contact</Link>
+          <div className="hidden md:flex space-x-8">
+            <NavLink to="/" className={navLinkStyles}>Home</NavLink>
+            <NavLink to="/news_latter" className={navLinkStyles}>Newsletter</NavLink>
+            <NavLink to="/software" className={navLinkStyles}>Software</NavLink>
+            <NavLink to="/contact" className={navLinkStyles}>Contact</NavLink>
           </div>
+
+          <div></div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
@@ -142,11 +141,10 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black bg-opacity-80 rounded-md">
-              <Link to="/" className="text-yellow-500 hover:text-yellow-400 block px-3 py-2 text-base font-medium">Home</Link>
-              <Link to="/book" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Book</Link>
-              <Link to="/newsletter" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Newsletter</Link>
-              <Link to="/software" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Software</Link>
-              <Link to="/contact" className="text-white hover:text-yellow-400 block px-3 py-2 text-base font-medium">Contact</Link>
+              <NavLink to="/" className={mobileNavLinkStyles}>Home</NavLink>
+              <NavLink to="/news_latter" className={mobileNavLinkStyles}>Newsletter</NavLink>
+              <NavLink to="/software" className={mobileNavLinkStyles}>Software</NavLink>
+              <NavLink to="/contact" className={mobileNavLinkStyles}>Contact</NavLink>
             </div>
           </div>
         )}
@@ -156,5 +154,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
