@@ -87,14 +87,16 @@ const Footer = () => {
       <div className="relative z-10 container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300">
         <div className="flex justify-center md:justify-start">
           <div className="text-center md:text-left">
+           <Link to="/">
             <img src={Logo} alt="Logo" className="w-[120px] h-[60px] mx-auto md:mx-0" />
+           </Link>
             <p className="text-xs mt-2">
               Choose the Best AI helps you discover top AI tools
             </p>
           </div>
         </div>
 
-        {/* Mobile Legal & Contact Sections */}
+      
         <div className="md:hidden flex justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <div>

@@ -10,6 +10,7 @@ import Subcription_Confirm from "../Pages/Thankpage/Subcription_Confirm";
 import Software from "../Pages/Software/Software";
 import TermsConditions from "../Pages/T&C/TermsConditions";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
+import Books from "../Pages/Books/Books";
   
 export const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
           {
             path: "/software",
             element: <Software/>
+          },
+          {
+            path: "/books_collection",
+            element: <Books/>
           },
           {
             path: "/terms_condition",
