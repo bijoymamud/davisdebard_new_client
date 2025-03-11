@@ -1,6 +1,7 @@
 
 
 
+
 // import { useState, useEffect } from "react";
 // import { useForm } from "react-hook-form";
 // import { ChevronDown, ChevronUp } from "lucide-react";
@@ -10,15 +11,12 @@
 //   const { data, isLoading } = useGetCategoryQuery();
 //   const AllCategory = data?.data || [];
 
-//   // API mutation hook for creating a category
 //   const [createNewsletter, { isLoading: isSubmitting, error }] = useCreateNewsletterMutation();
 
-//   // State to store transformed categories
 //   const [categoriesData, setCategoriesData] = useState({});
 //   const [expandedCategories, setExpandedCategories] = useState({});
 //   const [selectedOptions, setSelectedOptions] = useState({});
 
-//   // Debugging: Log API response
 //   console.log("Fetched Categories:", AllCategory);
 
 //   useEffect(() => {
@@ -38,7 +36,7 @@
 //       setCategoriesData(groupedData);
 //       setExpandedCategories(Object.keys(groupedData).reduce((acc, key) => ({ ...acc, [key]: false }), {}));
 //     }
-//   }, [data]); // Watch `data` instead of `AllCategory`
+//   }, [data]);
 
 //   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -60,7 +58,7 @@
 
 //   const onSubmit = async (formData) => {
 //     const selectedCategories = AllCategory.filter(item => selectedOptions[item.name])
-//       .map(item => (item.slug));
+//       .map(item => item.slug);
 
 //     const submissionData = {
 //       first_name: formData.first_name,
@@ -139,38 +137,40 @@
 //             <h2 className="text-lg sm:text-xl font-bold mb-4">Select Categories</h2>
 
 //             <div className="space-y-3">
-//               {Object.keys(categoriesData).map((category) => (
-//                 <div key={category} className="border border-gray-300 rounded">
-//                   <button
-//                     type="button"
-//                     onClick={() => toggleCategory(category)}
-//                     className="w-full flex justify-between items-center p-3 sm:p-4 text-sm sm:text-base"
-//                   >
-//                     <span className="font-medium">{category}</span>
-//                     {expandedCategories[category] ? (
-//                       <ChevronUp className="h-4 w-4 sm:h-5 sm:w-5" />
-//                     ) : (
-//                       <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5" />
-//                     )}
-//                   </button>
+//               {Object.keys(categoriesData)
+//                 .filter(category => category !== "null") // Filter out "null" categories
+//                 .map((category) => (
+//                   <div key={category} className="border border-gray-300 rounded">
+//                     <button
+//                       type="button"
+//                       onClick={() => toggleCategory(category)}
+//                       className="w-full flex justify-between items-center p-3 sm:p-4 text-sm sm:text-base"
+//                     >
+//                       <span className="font-medium">{category}</span>
+//                       {expandedCategories[category] ? (
+//                         <ChevronUp className="h-4 w-4 sm:h-5 sm:w-5" />
+//                       ) : (
+//                         <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5" />
+//                       )}
+//                     </button>
 
-//                   {expandedCategories[category] && (
-//                     <div className="p-3 sm:p-4 pt-0 space-y-2">
-//                       {categoriesData[category].map((subcategory) => (
-//                         <label key={subcategory.name} className="flex items-center space-x-2 text-sm sm:text-base">
-//                           <input
-//                             type="checkbox"
-//                             checked={selectedOptions[subcategory.name] || false}
-//                             onChange={() => toggleOption(subcategory)}
-//                             className="h-4 w-4"
-//                           />
-//                           <span>{subcategory.name}</span>
-//                         </label>
-//                       ))}
-//                     </div>
-//                   )}
-//                 </div>
-//               ))}
+//                     {expandedCategories[category] && (
+//                       <div className="p-3 sm:p-4 pt-0 space-y-2">
+//                         {categoriesData[category].map((subcategory) => (
+//                           <label key={subcategory.name} className="flex items-center space-x-2 text-sm sm:text-base">
+//                             <input
+//                               type="checkbox"
+//                               checked={selectedOptions[subcategory.name] || false}
+//                               onChange={() => toggleOption(subcategory)}
+//                               className="h-4 w-4"
+//                             />
+//                             <span>{subcategory.name}</span>
+//                           </label>
+//                         ))}
+//                       </div>
+//                     )}
+//                   </div>
+//                 ))}
 
 //               <div className="text-xs sm:text-sm text-green-600 font-medium">
 //                 <p className="flex items-center gap-1">
@@ -196,8 +196,6 @@
 //     </section>
 //   );
 // }
-
-
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -275,7 +273,14 @@ export default function SubscriptionForm() {
   };
 
   return (
-    <section className="bg-[#FDFBF5] py-10 px-3 md:px-20">
+    <section className="bg-[#FDFBF5] py-10 px-3 md:px-20 relative">
+      {/* Full Screen Loader */}
+      {isLoading && (
+        <div className="absolute inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+          <span className="loading loading-bars loading-xl"></span>
+        </div>
+      )}
+
       <div className="border-2 border-yellow-200 max-w-6xl mx-auto md:p-10 p-5 bg-white">
         <h1 className="text-xl sm:text-2xl font-bold mb-2">Subscribe to AI Rankings</h1>
         <p className="text-gray-600 mb-6 text-sm sm:text-base">

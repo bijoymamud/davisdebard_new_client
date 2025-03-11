@@ -76,7 +76,7 @@ const BookPromo = () => {
 
           <div className="space-x-3 text-center md:text-start mt-10">
             <Link
-              to="/discount_info"
+              to="/review"
               className="bg-gradient-to-r from-yellow-600 to-black/70 text-white font-semibold py-3 px-6 rounded-md transition duration-300"
             >
               Get Discount

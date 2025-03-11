@@ -31,8 +31,16 @@ export const baseApi = createApi({
         //getCategories
         getCategory: builder.query({
             query: () => "/categories/"
-        })
+        }),
 
+        //review create
+        createReview: builder.mutation({
+            query: (data) => ({
+                url: "/reviews/",
+                method: "POST",
+                body: data
+            })
+        })
 
 
 
@@ -49,6 +57,7 @@ export const {
     useCreateContactMutation,
     useGetCategoryQuery,
     useCreateNewsletterMutation,
+    useCreateReviewMutation
 
 
 
