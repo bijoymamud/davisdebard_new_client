@@ -12,13 +12,14 @@ const ThankYou = () => {
           <div className=" p-3 rounded-md  mb-4 text-base">
 
 <p>Your request for 6 Months FREE of "AiTAiN.Ai Achieve Dreams" software has been received.</p> <br />
-<p>Our team will review your request and get back to you within the next 48 hours.</p>
+<p>Our team will review your request and get back to you within the <span className="font-semibold text-green-600 text-base">next 48 hours</span>.</p>
 
           </div>
   
           <Link
             to="/"
-            className="bg-yellow-500 text-white font-semibold py-3 px-6 rounded-md transition duration-300 hover:bg-yellow-600"
+           className="w-full py-3 px-10 rounded-md font-semibold text-white transition duration-300"
+            style={{ background: "linear-gradient(to right, #FFD700, #000)" }}
           >
             Return To Home
           </Link>

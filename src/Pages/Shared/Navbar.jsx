@@ -37,7 +37,8 @@ const Navbar = () => {
           {/* Logo and Brand */}
           <div className="flex items-center">
             <Link to ="/">
-            <img src={logo} alt="Logo" className="w-[150px] h-[80px]" />
+            {/* <img src={logo} alt="Logo" className="w-[150px] h-[80px]" /> */}
+            <img src="https://i.ibb.co.com/WvZJhxPZ/Davis-New-Logo-removebg-preview.png" alt="logo" className="w-[150px] h-[80px]"/>
             </Link>
           </div>
 
@@ -45,7 +46,8 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-8">
             <NavLink to="/" className={navLinkStyles}>Home</NavLink>
             <NavLink to="/news_latter" className={navLinkStyles}>Newsletter</NavLink>
-            <NavLink to="/books_collection" className={navLinkStyles}>Books</NavLink>
+            <NavLink to="/feature" className={navLinkStyles}>Books</NavLink>
+            {/* <NavLink to="/books_collection" className={navLinkStyles}>Books</NavLink> */}
             <NavLink to="/software" className={navLinkStyles}>Software</NavLink>
             <NavLink to="/contact" className={navLinkStyles}>Contact</NavLink>
           </div>

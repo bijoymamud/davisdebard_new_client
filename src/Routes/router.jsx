@@ -11,6 +11,7 @@ import Software from "../Pages/Software/Software";
 import TermsConditions from "../Pages/T&C/TermsConditions";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import Books from "../Pages/Books/Books";
+import Feature from "../Pages/Home/Feature";
   
 export const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
           {
           path: '/discount_info',
           element: <DiscountForm/>  
+          },
+          {
+            path: "/feature", 
+            element: <Feature/>
           },
           {
           path: '/contact',

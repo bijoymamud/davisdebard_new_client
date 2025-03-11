@@ -88,7 +88,8 @@ const Footer = () => {
         <div className="flex justify-center md:justify-start">
           <div className="text-center md:text-left">
            <Link to="/">
-            <img src={Logo} alt="Logo" className="w-[120px] h-[60px] mx-auto md:mx-0" />
+            {/* <img src={Logo} alt="Logo" className="w-[120px] h-[60px] mx-auto md:mx-0" /> */}
+            <img src="https://i.ibb.co.com/WvZJhxPZ/Davis-New-Logo-removebg-preview.png" alt="" className="w-[150px] h-[80px]"/>
            </Link>
             <p className="text-xs mt-2">
               Choose the Best AI helps you discover top AI tools

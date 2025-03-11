@@ -60,13 +60,15 @@ const BookPromo = () => {
       {/* Large Screen View (Hidden on Mobile) */}
       <div
         className="hidden md:flex container mx-auto min-h-[50vh] w-full rounded-lg items-center justify-start bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${bookCover})` }}
+        // style={{ backgroundImage: `url(${bookCover})` }}
+        // style={{ backgroundImage: `url('https://i.ibb.co/DP2CcNCZ/Group-1597883007.png')` }}
+        style={{ backgroundImage: `url('https://i.ibb.co.com/4w4vYBXt/Group-1597883009.png')` }}
       >
         <div className="bg-opacity-80 md:p-8 p-4 text-start md:ms-32 md:w-1/2 md:py-20">
           <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center md:text-start">
             Special Offer
           </h1>
-          <p className="text-lg text-gray-600 text-center md:text-start">
+          <p className="text-lg text-gray-600 text-center md:text-start md:me-20">
             Buy the book on Amazon, give it a strong review, and you may earn 6
             months free of the amazingly useful "AiTAiN.Ai Achieve Dreams"
             software. Click "Get Discount" for details.
