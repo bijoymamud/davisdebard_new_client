@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-8">
             <NavLink to="/" className={navLinkStyles}>Home</NavLink>
             <NavLink to="/news_latter" className={navLinkStyles}>Newsletter</NavLink>
-            <NavLink to="/feature" className={navLinkStyles}>Books</NavLink>
+            <NavLink to="/bookInfo" className={navLinkStyles}>Book</NavLink>
             {/* <NavLink to="/books_collection" className={navLinkStyles}>Books</NavLink> */}
             <NavLink to="/software" className={navLinkStyles}>Software</NavLink>
             <NavLink to="/contact" className={navLinkStyles}>Contact</NavLink>

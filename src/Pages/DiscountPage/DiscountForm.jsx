@@ -201,9 +201,9 @@ export default function DiscountForm() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#FDFBF5] p-4">
       <div className="w-full max-w-3xl bg-white rounded-lg border border-yellow-400/30 p-6 md:p-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Get Your Discount Code</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Get your Discount Code</h1>
         <p className="text-gray-600 mb-6">
-          Select Your Interests And Get Monthly Updates On The Best AI Tools In Your Preferred Categories.
+          Select your interests and get Monthly Updates on the Best AI Tools in your preferred categories.
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -294,7 +294,7 @@ export default function DiscountForm() {
 
           <div className="mb-6">
             <label htmlFor="review" className="block text-gray-700 mb-1">
-              Your Review
+              Paste your Amazon review here :
             </label>
             <textarea
               {...register("review", { required: "Review is required" })}

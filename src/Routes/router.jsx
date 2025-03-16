@@ -12,6 +12,7 @@ import TermsConditions from "../Pages/T&C/TermsConditions";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import Books from "../Pages/Books/Books";
 import Feature from "../Pages/Home/Feature";
+import BookInfo from "../Pages/Books/Books";
   
 export const router = createBrowserRouter([
     {
@@ -52,8 +53,8 @@ export const router = createBrowserRouter([
             element: <Software/>
           },
           {
-            path: "/books_collection",
-            element: <Books/>
+            path: "/bookInfo",
+            element: <BookInfo/>
           },
           {
             path: "/terms_condition",

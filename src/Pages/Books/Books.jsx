@@ -1,286 +1,154 @@
 
-
-
-// const books = [
-//   {
-//     id: 1,
-//     title: "The Great Gatsby",
-//     author: "F. Scott Fitzgerald",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "A story of wealth, love, and the American Dream in the 1920s.",
-//   },
-//   {
-//     id: 2,
-//     title: "To Kill a Mockingbird",
-//     author: "Harper Lee",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "A powerful story of racial injustice and moral growth in the American South.",
-//   },
-//   {
-//     id: 3,
-//     title: "1984",
-//     author: "George Orwell",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "A dystopian novel about totalitarianism, surveillance, and thought control.",
-//   },
-//   {
-//     id: 4,
-//     title: "Pride and Prejudice",
-//     author: "Jane Austen",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "A romantic novel of manners set in early 19th-century England.",
-//   },
-//   {
-//     id: 5,
-//     title: "The Hobbit",
-//     author: "J.R.R. Tolkien",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "A fantasy novel about the adventures of Bilbo Baggins.",
-//   },
-//   {
-//     id: 6,
-//     title: "Harry Potter and the Philosopher's Stone",
-//     author: "J.K. Rowling",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "The first book in the Harry Potter series about a young wizard.",
-//   },
-//   {
-//     id: 7,
-//     title: "The Catcher in the Rye",
-//     author: "J.D. Salinger",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "A novel about teenage alienation and loss of innocence.",
-//   },
-//   {
-//     id: 8,
-//     title: "The Lord of the Rings",
-//     author: "J.R.R. Tolkien",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "An epic high-fantasy novel set in Middle-earth.",
-//   },
-//   {
-//     id: 9,
-//     title: "Brave New World",
-//     author: "Aldous Huxley",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "A dystopian novel about a futuristic World State and its citizens.",
-//   },
-//   {
-//     id: 10,
-//     title: "The Alchemist",
-//     author: "Paulo Coelho",
-//     coverImage: "/placeholder.svg?height=300&width=200",
-//     description: "A philosophical novel about following your dreams.",
-//   },
-// ]
-
-// export default function Books() {
-//   return (
-//     <div className="container mx-auto px-4 py-8">
-//       <h1 className="text-3xl font-bold mb-8 text-center">My Book Collection</h1>
-
-//       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-//         {books.map((book) => (
-//           <div
-//             key={book.id}
-//             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
-//           >
-//             <div className="relative h-64 w-full">
-//               <img
-//                 src={book.coverImage || "/placeholder.svg"}
-//                 alt={`Cover of ${book.title}`}
-//                 fill
-//                 className="object-cover"
-//               />
-//             </div>
-//             <div className="p-4">
-//               <h2 className="font-bold text-lg line-clamp-1">{book.title}</h2>
-//               <p className="text-gray-600 text-sm mb-2">{book.author}</p>
-//               <p className="text-gray-500 text-xs line-clamp-2">{book.description}</p>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   )
-// }
+import React from 'react';
+import bookImg from "../../assets/DavisBook.png";
+import { Link } from 'react-router-dom';
 
 
 
-import React, { useState } from 'react';
-import { Search, BookOpen, ChevronDown } from 'lucide-react';
 
-const books = [
-  {
-    id: 1,
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    coverImage: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80",
-    description: "A story of wealth, love, and the American Dream in the 1920s.",
-    genre: "Classic"
-  },
-  {
-    id: 2,
-    title: "To Kill a Mockingbird",
-    author: "Harper Lee",
-    coverImage: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=800&q=80",
-    description: "A powerful story of racial injustice and moral growth in the American South.",
-    genre: "Classic"
-  },
-  {
-    id: 3,
-    title: "1984",
-    author: "George Orwell",
-    coverImage: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=800&q=80",
-    description: "A dystopian novel about totalitarianism, surveillance, and thought control.",
-    genre: "Science Fiction"
-  },
-  {
-    id: 4,
-    title: "Pride and Prejudice",
-    author: "Jane Austen",
-    coverImage: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80",
-    description: "A romantic novel of manners set in early 19th-century England.",
-    genre: "Romance"
-  },
-  {
-    id: 5,
-    title: "The Hobbit",
-    author: "J.R.R. Tolkien",
-    coverImage: "https://bookowlsbd.com/cdn/shop/files/224_970aa38f-7342-48e2-94d3-1129bfb51456.png?v=1728936027?auto=format&fit=crop&w=800&q=80",
-    description: "A fantasy novel about the adventures of Bilbo Baggins.",
-    genre: "Fantasy"
-  },
-  {
-    id: 6,
-    title: "Harry Potter and the Philosopher's Stone",
-    author: "J.K. Rowling",
-    coverImage: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
-    description: "The first book in the Harry Potter series about a young wizard.",
-    genre: "Fantasy"
-  },
-  {
-    id: 7,
-    title: "The Catcher in the Rye",
-    author: "J.D. Salinger",
-    coverImage: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=800&q=80",
-    description: "A novel about teenage alienation and loss of innocence.",
-    genre: "Classic"
-  },
-  {
-    id: 8,
-    title: "The Lord of the Rings",
-    author: "J.R.R. Tolkien",
-    coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1566425108i/33.jpg?auto=format&fit=crop&w=800&q=80",
-    description: "An epic high-fantasy novel set in Middle-earth.",
-    genre: "Fantasy"
-  },
-  {
-    id: 9,
-    title: "Brave New World",
-    author: "Aldous Huxley",
-    coverImage: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=800&q=80",
-    description: "A dystopian novel about a futuristic World State and its citizens.",
-    genre: "Science Fiction"
-  },
-  {
-    id: 10,
-    title: "The Alchemist",
-    author: "Paulo Coelho",
-    coverImage: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80",
-    description: "A philosophical novel about following your dreams.",
-    genre: "Philosophy"
-  },
-];
-
-function Books() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedGenre, setSelectedGenre] = useState('All');
-  const [hoveredBook, setHoveredBook] = useState(null);
-
-  const genres = ['All', ...Array.from(new Set(books.map(book => book.genre)))];
-
-  const filteredBooks = books.filter(book => {
-    const matchesSearch = book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         book.author.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesGenre = selectedGenre === 'All' || book.genre === selectedGenre;
-    return matchesSearch && matchesGenre;
-  });
-
+const BookInfo = () => {
+  const models = [
+    { rank: 1, tool: "Chat GPT-4 (Open AI)", price: "$$$", quality: 5, description: "Industry-leading model with exceptional reasoning and task performance across domains." },
+    { rank: 2, tool: "Claude 3 Opus (Anthropic)", price: "$$$", quality: 5, description: "Powerful Model With Strong Capabilities In Analysis, Writing And Complex Reasoning." },
+    { rank: 3, tool: "Gemini Ultra (Google)", price: "$$$", quality: 4, description: "Advanced Model With Strong Multimodal Capabilities And Reasoning Abilities." },
+    { rank: 4, tool: "BLOOM (Hugging Face)", price: "$$$", quality: 4, description: "Open-Source Multilingual Model With Broad Language Support." },
+    { rank: 5, tool: "LLaMA 2 (Meta)", price: "$", quality: 4, description: "Strong Open-Source Foundation Model With Good Performance Across Tasks." },
+    { rank: 6, tool: "Mistral", price: "$", quality: 4, description: "Efficient Model With Good Performance-To-Size Ratio." },
+    { rank: 7, tool: "PaLM 2 (Google)", price: "$$", quality: 3, description: "Robust General-Purpose Model With Strong Multilingual Capabilities." },
+    { rank: 8, tool: "Cohere Command", price: "$$", quality: 3, description: "Specialized For Business Applications With Strong Enterprise Features." },
+    { rank: 9, tool: "Stable LM (Stability AI)", price: "$", quality: 3, description: "Open-Source Model Focused On Creative And Generative Tasks." },
+    { rank: 10, tool: "GPT-3 (EleutherAI)", price: "$", quality: 3, description: "Open-Source Model With Decent Performance For Its Size." },
+  ];
+  
+  const getStars = (rating) => {
+    return "★".repeat(rating) + "☆".repeat(5 - rating);
+  };
+  
   return (
- <section className="bg-[#FDFBF5] md:py-10 py-5 px-3 md:px-20"> 
-       <div>
-      <div className="container mx-auto px-4 md:py-12 py-8d">
-        <div className="flex flex-col items-center justify-center md:mb-20">
-          <img src="" alt="" />
-          <h1 className="text-4xl font-bold text-gray-800">Curated Pages: A Personal Library</h1>
-          <p className='mt-2 font-medium text-gray-800'>A Collection of Stories, Knowledge, and Inspiration</p>
-        </div>
-
-        <div className="flex justify-end md:flex-row md:gap-4 gap-2 md:mb-8 my-5">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search by title or author..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-200"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+    <section className="bg-[#FDFBF5]">
+      <div className="container mx-auto px-4 py-12 min-h-screen flex flex-col justify-center items-center">
+        {/* Mobile Layout (image above text) */}
+        <div className="flex flex-col md:hidden items-center gap-8 w-full">
+          <div className="w-full flex justify-center">
+            <img
+              src={bookImg}
+              alt="Book Cover"
+              className="w-full max-w-xs shadow-lg"
             />
           </div>
-
-          <div className="relative">
-            <select
-              className="appearance-none bg-white pl-4 pr-10 py-2 rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-200"
-              value={selectedGenre}
-              onChange={(e) => setSelectedGenre(e.target.value)}
-            >
-              {genres.map(genre => (
-                <option key={genre} value={genre}>{genre}</option>
-              ))}
-            </select>
-            <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {filteredBooks.map((book) => (
-            <div
-              key={book.id}
-              className="group relative bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-              onMouseEnter={() => setHoveredBook(book.id)}
-              onMouseLeave={() => setHoveredBook(null)}
-            >
-              <div className="relative h-72">
-                <img
-                  src={book.coverImage}
-                  alt={`Cover of ${book.title}`}
-                  className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className={`absolute inset-0 bg-black bg-opacity-60 transition-opacity duration-300 flex items-center justify-center p-4 ${hoveredBook === book.id ? 'opacity-100' : 'opacity-0'}`}>
-                  <p className="text-white text-sm text-center">{book.description}</p>
-                </div>
-              </div>
-              <div className="p-4 bg-white">
-                <div className="inline-block px-2 py-1 mb-2 text-xs font-semibold text-indigo-600 bg-indigo-50 rounded-full">
-                  {book.genre}
-                </div>
-                <h2 className="font-bold text-lg text-gray-800 line-clamp-1 mb-1">{book.title}</h2>
-                <p className="text-gray-600 text-sm">{book.author}</p>
-              </div>
+          <div className="w-full text-center">
+            <h1 className="text-2xl font-semibold text-black leading-tight">
+              Your Guide to Choosing the Best AI for Real-World Applications
+            </h1>
+            <p className="mt-4 text-[#373737] text-sm">
+              For Artificial Intelligence (AI), your choice is simple: Get on board or be left behind. Our goal is to arm you with the best possible information to compare AI tools by application and industry group. You’ll learn the basic types of AI, its history, future trends, and industry leaders. Enjoy case studies, exercises, and a remarkable side-by-side view of leading tools by category – 200 category winners in all, with price and quality ratings.
+              The book has a free companion website, ChooseTheBest.ai, to keep you current in whatever fields you select, where members learn monthly of breaking developments in their chosen niches.
+              Your future, and your future career, depend on making the best AI choices today. Here is your key. Unlock it.
+            </p>
+            <div className="space-y-5 mt-5">
+              <p className="text-[#373737] text-sm">
+                <span className="text-[#0093A9] font-semibold">Bonus:</span> Free trial of our patent-pending “AiTAiN.Ai Achieve Dreams” software. It amplifies your Google, Chat-GPT, Claude or Gemini searches by sending them to multiple search engines. No retyping! No remembering what you asked before! It also saves your searches so you can pick up where you left off.
+              </p>
+              <p className="text-[#373737] text-sm">
+                <span className="text-[#0093A9] font-semibold">Extra Bonus:</span> If you buy the book on Amazon, and give a strong review, you may get six months free of “AiTAiN.Ai Achieve Dreams” software by asking for a code on this site.
+              </p>
             </div>
-          ))}
+            <button className="mt-6 bg-gradient-to-r from-yellow-600 to-black/70 hover:bg-gray-900 text-white font-semibold py-2 px-6 rounded-md transition duration-300 w-full">
+              <Link
+                target="_blank"
+                to="https://www.amazon.com/stores/Andrew-Boyd/author/B001IXSAD2?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true"
+              >
+                Buy on Amazon
+              </Link>
+            </button>
+          </div>
         </div>
 
-        {filteredBooks.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No books found matching your criteria</p>
+        {/* Large Device Layout (image on left, text on right) */}
+      <div>
+      <div className="hidden md:flex md:flex-row items-center gap-8 w-full">
+          <div className="md:w-1/2 flex justify-center">
+            <img
+              src={bookImg}
+              alt="Book Cover"
+              className="w-full max-w-md shadow-lg"
+            />
           </div>
-        )}
-      </div>
-    </div>
- </section>
-  );
-}
+          <div className="md:w-1/2 text-left">
+            <h1 className="text-4xl font-semibold text-black leading-tight">
+              Your Guide to Choosing the Best AI for Real-World Applications
+            </h1>
+            <p className="mt-4 text-[#373737] text-lg">
+              For Artificial Intelligence (AI), your choice is simple: Get on board or be left behind. Our goal is to arm you with the best possible information to compare AI tools by application and industry group. You’ll learn the basic types of AI, its history, future trends, and industry leaders. Enjoy case studies, exercises, and a remarkable side-by-side view of leading tools by category – 200 category winners in all, with price and quality ratings.
+              The book has a free companion website, ChooseTheBest.ai, to keep you current in whatever fields you select, where members learn monthly of breaking developments in their chosen niches.
+              Your future, and your future career, depend on making the best AI choices today. Here is your key. Unlock it.
+            </p>
+            <div className="space-y-5 mt-5">
+              <p className="text-[#373737] text-lg">
+                <span className="text-[#0093A9] font-semibold">Bonus:</span> Free trial of our patent-pending “AiTAiN.Ai Achieve Dreams” software. It amplifies your Google, Chat-GPT, Claude or Gemini searches by sending them to multiple search engines. No retyping! No remembering what you asked before! It also saves your searches so you can pick up where you left off.
+              </p>
+              <p className="text-[#373737] text-lg">
+                <span className="text-[#0093A9] font-semibold">Extra Bonus:</span> If you buy the book on Amazon, and give a strong review, you may get six months free of “AiTAiN.Ai Achieve Dreams” software by asking for a code on this site.
+              </p>
+            </div>
+            <button className="mt-6 bg-gradient-to-r from-yellow-600 to-black/70 hover:bg-gray-900 text-white font-semibold py-3 px-8 rounded-md transition duration-300">
+              <Link
+                target="_blank"
+                to="https://www.amazon.com/stores/Andrew-Boyd/author/B001IXSAD2?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true"
+              >
+                Buy on Amazon
+              </Link>
+            </button>
+          </div>
+        </div>
 
-export default Books;
+        
+        <div className="mt-20">
+
+          <div className='text-center w-4/6 mx-auto pb-14'>
+            <h1 className='text-3xl font-bold text-gray-800 mb-4'>What's Inside</h1>
+            <p>Several chapters are devoted to presenting the top 10 winners in 20 categories.  You get the most important insights:  Overall Rank, Price, Quality, and Comments.  There is an appendix including links to every one of the winners, so you can investigate further on your own.</p>
+          </div>
+  <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
+    Top 10 Natural Language Processing Models
+  </h2>
+  <div className="overflow-x-auto">
+    <table className="w-full table-auto border-collapse rounded-lg shadow-md">
+      <thead>
+        <tr className="bg-yellow-500 text-white text-lg">
+          <th className="px-4 py-3 text-left">Rank</th>
+          <th className="px-4 py-3 text-left">Tool</th>
+          <th className="px-4 py-3 text-left">Price</th>
+          <th className="px-4 py-3 text-left">Quality</th>
+          <th className="px-4 py-3 text-left">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {models.map((model) => (
+          <tr
+            key={model.rank}
+            className="bg-white border-b transition duration-300 ease-in-out hover:bg-yellow-100"
+          >
+            <td className="px-4 py-3 font-medium text-gray-700">{model.rank}</td>
+            <td className="px-4 py-3 font-semibold text-gray-800">{model.tool}</td>
+            <td className="px-4 py-3 text-gray-700">{model.price}</td>
+            <td className="px-4 py-3 text-yellow-500">{getStars(model.quality)}</td>
+            <td className="px-4 py-3 text-gray-600">{model.description}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <div className='my-20'>
+    <p>Price guide: $ = free/low cost, $$ = medium cost, $$$ = premium/enterprise</p>
+    <p>Quality Rating: <span className='text-yellow-500'>★★★</span> = Good, <span className='text-yellow-500'>★★★★</span> = Excellent, <span className='text-yellow-500'>★★★★★</span> = Outstanding</p>
+    </div>
+  </div>
+</div>
+
+      </div>
+      </div>
+    </section>
+  );
+};
+
+export default BookInfo;

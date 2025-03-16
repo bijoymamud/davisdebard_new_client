@@ -118,7 +118,27 @@ import React from 'react';
 import bookImg from "../../assets/DavisBook.png";
 import { Link } from 'react-router-dom';
 
+
+
+
 const Feature = () => {
+  const models = [
+    { rank: 1, tool: "Chat GPT-4 (Open AI)", price: "$$$", quality: 5, description: "Industry-leading model with exceptional reasoning and task performance across domains." },
+    { rank: 2, tool: "Claude 3 Opus (Anthropic)", price: "$$$", quality: 5, description: "Powerful Model With Strong Capabilities In Analysis, Writing And Complex Reasoning." },
+    { rank: 3, tool: "Gemini Ultra (Google)", price: "$$$", quality: 4, description: "Advanced Model With Strong Multimodal Capabilities And Reasoning Abilities." },
+    { rank: 4, tool: "BLOOM (Hugging Face)", price: "$$$", quality: 4, description: "Open-Source Multilingual Model With Broad Language Support." },
+    { rank: 5, tool: "LLaMA 2 (Meta)", price: "$", quality: 4, description: "Strong Open-Source Foundation Model With Good Performance Across Tasks." },
+    { rank: 6, tool: "Mistral", price: "$", quality: 4, description: "Efficient Model With Good Performance-To-Size Ratio." },
+    { rank: 7, tool: "PaLM 2 (Google)", price: "$$", quality: 3, description: "Robust General-Purpose Model With Strong Multilingual Capabilities." },
+    { rank: 8, tool: "Cohere Command", price: "$$", quality: 3, description: "Specialized For Business Applications With Strong Enterprise Features." },
+    { rank: 9, tool: "Stable LM (Stability AI)", price: "$", quality: 3, description: "Open-Source Model Focused On Creative And Generative Tasks." },
+    { rank: 10, tool: "GPT-3 (EleutherAI)", price: "$", quality: 3, description: "Open-Source Model With Decent Performance For Its Size." },
+  ];
+  
+  const getStars = (rating) => {
+    return "★".repeat(rating) + "☆".repeat(5 - rating);
+  };
+  
   return (
     <section className="bg-[#FDFBF5]">
       <div className="container mx-auto px-4 py-12 min-h-screen flex flex-col justify-center items-center">
@@ -160,7 +180,8 @@ const Feature = () => {
         </div>
 
         {/* Large Device Layout (image on left, text on right) */}
-        <div className="hidden md:flex md:flex-row items-center gap-8 w-full">
+      <div>
+      <div className="hidden md:flex md:flex-row items-center gap-8 w-full">
           <div className="md:w-1/2 flex justify-center">
             <img
               src={bookImg}
@@ -195,6 +216,51 @@ const Feature = () => {
             </button>
           </div>
         </div>
+
+        
+        {/* <div className="mt-20">
+
+          <div className='text-center w-4/6 mx-auto pb-14'>
+            <h1 className='text-3xl font-bold text-gray-800 mb-4'>What's Inside</h1>
+            <p>Several chapters are devoted to presenting the top 10 winners in 20 categories.  You get the most important insights:  Overall Rank, Price, Quality, and Comments.  There is an appendix including links to every one of the winners, so you can investigate further on your own.</p>
+          </div>
+  <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
+    Top 10 Natural Language Processing Models
+  </h2>
+  <div className="overflow-x-auto">
+    <table className="w-full table-auto border-collapse rounded-lg shadow-md">
+      <thead>
+        <tr className="bg-yellow-500 text-white text-lg">
+          <th className="px-4 py-3 text-left">Rank</th>
+          <th className="px-4 py-3 text-left">Tool</th>
+          <th className="px-4 py-3 text-left">Price</th>
+          <th className="px-4 py-3 text-left">Quality</th>
+          <th className="px-4 py-3 text-left">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {models.map((model) => (
+          <tr
+            key={model.rank}
+            className="bg-white border-b transition duration-300 ease-in-out hover:bg-yellow-100"
+          >
+            <td className="px-4 py-3 font-medium text-gray-700">{model.rank}</td>
+            <td className="px-4 py-3 font-semibold text-gray-800">{model.tool}</td>
+            <td className="px-4 py-3 text-gray-700">{model.price}</td>
+            <td className="px-4 py-3 text-yellow-500">{getStars(model.quality)}</td>
+            <td className="px-4 py-3 text-gray-600">{model.description}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <div className='my-20'>
+    <p>Price guide: $ = free/low cost, $$ = medium cost, $$$ = premium/enterprise</p>
+    <p>Quality Rating: <span className='text-yellow-500'>★★★</span> = Good, <span className='text-yellow-500'>★★★★</span> = Excellent, <span className='text-yellow-500'>★★★★★</span> = Outstanding</p>
+    </div>
+  </div>
+</div> */}
+
+      </div>
       </div>
     </section>
   );

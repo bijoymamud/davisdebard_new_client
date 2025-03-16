@@ -123,7 +123,52 @@ const Software = () => {
           leverage.
         </p>
       </div>
+
      </div>
+     
+ <div className=" ">
+ <div className="space-y-5 pt-20 max-w-6xl mx-auto">
+  {/* Section: A Look Inside */}
+  <div className="border border-yellow-300 bg-yellow-50 p-10 rounded-lg shadow-md">
+    <h3 className="text-xl font-semibold text-gray-800 mb-2">A Look Inside</h3>
+    <p className="text-gray-700">
+      This panel defines a new software category called "AI Unifier". It unifies four of the leading artificial 
+      intelligence tools into a single session. Here’s what you get: a blend of the top AI engines with almost 
+      zero effort. It’s the future!
+    </p>
+  </div>
+
+  {/* Section: Pick Up Where You Left Off */}
+  <div className="border border-blue-300 bg-blue-50 p-6 rounded-lg shadow-md">
+    <h3 className="text-xl font-semibold text-gray-800 mb-2">Pick Up Where You Left Off</h3>
+    <p className="text-gray-700">
+      Another major advantage of AI Unifier is that it remembers your input with no effort on your part. 
+      You can search your past usage across multiple AI platforms in one place.
+    </p>
+  </div>
+
+  {/* Section: Try It Today */}
+  <div className="text-center mt-20 ">
+    <h3 className="text-3xl font-bold text-gray-800 mt-20">Try It Today</h3>
+  </div>
+
+  {/* Section: Get Started For Free */}
+  <div className="border border-yellow-400 bg-yellow-100 p-6 rounded-lg shadow-md text-center">
+    <div className="flex justify-center mb-3">
+      <img src="https://i.ibb.co.com/4nXxLQZd/Group.png" alt="Limited Offer" className="h-20" />
+    </div>
+    <h3 className="text-2xl font-bold text-gray-800 mb-2">Get Started For Free</h3>
+    <p className="text-gray-700 mb-4">
+      Experience the power of AI with our no-obligation 7-day trial.
+    </p>
+    <button className="bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition">
+      Start Free 7-Day Trial
+    </button>
+    <p className="text-sm text-gray-600 mt-2">No credit card required. Cancel anytime.</p>
+  </div>
+</div>
+
+ </div>
     </section>
   );
 };
